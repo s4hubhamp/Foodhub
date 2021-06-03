@@ -1,27 +1,45 @@
-# Wms
+# [Foodhub](https://foodhub-c3fd3.web.app/)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+Foodhub is inspired by online food ordering company Swiggy.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* __Responsive:__ Foodhub is fully responsive across all devices.
+* __Interactive:__ To draw people's attention, company needs interactive website. I made Foodhub interactive through adding maps and good quality images.
+* __Clean:__ User don't need to do special efforts for accessing simple things.
+* __User-Friendly:__ We don't force any restrictions on users.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Core technologies used
 
-## Build
+* __[Angular](https://angular.io/)__
+* __[Express.js](https://expressjs.com/)__
+* __[Mongoose](https://mongoosejs.com/)__ 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Installation
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+To install project run in project directory:
 
-## Further help
+```
+npm install package.json
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Available scripts
+
+To start the app, in the project directory run:
+
+```
+npm start
+```
+
+
+Runs the app in the development mode.
+Open [http://localhost:4200](http://localhost:4200) to view it in the browser.
+
+The page will reload if you make edits.
+You will also see any lint errors in the console.
+
+___Note: This is only front-end code of Foodhub___ for server head over __[Foodhub Server Repo](https://github.com/ShubhamP07/Foodhub-Server).__
