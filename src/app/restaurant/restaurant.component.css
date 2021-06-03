@@ -1,0 +1,49 @@
+* {
+  transition: transform 0.2s ease-in-out;
+  transform-origin: left top;
+}
+
+#restaurant {
+  background-color: #171a29;
+  color: #fff;
+}
+
+#restaurant .address {
+  text-transform: capitalize;
+  opacity: 0.7;
+}
+
+#restaurant .description {
+  text-transform: capitalize;
+  opacity: 0.7;
+}
+
+.restaurant-scrolled {
+  transform: scaleY(0.6999);
+  overflow: hidden;
+  /* transform: scale(.5); */
+}
+
+.restaurant-name-scrolled {
+  transform: scaleY(1.399);
+  overflow: hidden;
+}
+
+.restaurant-buttons-scrolled {
+  transform: scaleY(1.39);
+  overflow: hidden;
+  margin-top: 2.3rem;
+}
+
+.favourite-button:hover {
+  color: red;
+}
+
+#recipe-list::-webkit-scrollbar {
+  display: none;
+}
+
+#recipe-list {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

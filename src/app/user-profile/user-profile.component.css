@@ -1,0 +1,41 @@
+
+label {
+  font-weight: 500;
+  color: #198754;
+}
+
+span {
+  color: rgb(140, 87, 245);
+}
+
+.form-control {
+  border: none;
+  color: black;
+  border-radius: 0;
+  font-weight: 500;
+}
+
+.card {
+  /* border: 1px solid #5cdb95; */
+  border: none;
+}
+
+.link {
+  padding: 1.2rem 3rem;
+  margin-left: 18px;
+  cursor: pointer;
+}
+
+.active{
+  background: #fff;
+  border-bottom: 1px solid indianred;
+}
+
+#v-pills-tab .active {
+  background: #fff;
+  border: none;
+}
+
+#v-pills-tab {
+  background: #edf1f7;
+}

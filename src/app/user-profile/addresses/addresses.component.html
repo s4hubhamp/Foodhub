@@ -1,0 +1,288 @@
+<h3 class="h3 mb-3" *ngIf="currentRoute==='/checkout'">Select delivery address</h3>
+<h4 class="h4" *ngIf="currentRoute!=='/checkout'">Manage Addresses</h4>
+
+<div class="row mt-3" *ngIf="user">
+  <div class="col-xs-6 col-md-12 col-lg-6 col-xl-4 mb-3" *ngFor="let address of user.addresses">
+    <div class="p-4 address-old d-flex flex-column">
+      <div class="d-flex">
+        <div class="me-2">
+          <img class="address-image"
+               *ngIf="address.annotation === 'home'"
+               src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNDYzLjkzNyA0NjMuOTM3IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0NjMuOTM3IDQ2My45Mzc7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNNDYwLjQxNCwyMTYuNTE4bC04NS42LTczLjFjMC4xLTAuNSwwLjItMSwwLjMtMS42di05NS42Yy0wLjEtNS43LTQuNi0xMC4zLTEwLjMtMTAuNWgtNDcuOGMtNS41LDAtMTAsNC45LTEwLDEwLjV2MzkuNg0KCQkJbC02OC41LTU4LjRjLTMuNy0zLjItOS4yLTMuMi0xMywwbC0yMjEuOSwxODljLTQuMywzLjUtNC44LDkuOC0xLjMsMTQuMXM5LjgsNC44LDE0LjEsMS4zYzAuMS0wLjEsMC4xLTAuMSwwLjItMC4ybDIxNS40LTE4My40DQoJCQlsNzcuMSw2NS43bDQ2LjEsMzkuMmw5Mi4zLDc4LjZjNC4yLDMuNiwxMC41LDMuMSwxNC4xLTEuMUM0NjUuMTE0LDIyNi40MTgsNDY0LjYxNCwyMjAuMTE4LDQ2MC40MTQsMjE2LjUxOHogTTM1NS4wMTQsMTI2LjUxOA0KCQkJbC0yOC0yMy42di00Ny4xaDI4VjEyNi41MTh6Ii8+DQoJPC9nPg0KPC9nPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik00MTYuMzE0LDIzNi43MThsLTI4LjEtMjRsLTE0OS43LTEyNy45Yy0zLjctMy4yLTkuMi0zLjItMTMsMGwtMTQ5LjcsMTI3LjlsLTI4LjEsMjRjLTQuMiwzLjYtNC43LDkuOS0xLjEsMTQuMQ0KCQkJYzMuNSw0LjIsOS43LDQuNywxMy44LDEuMmwwLjEtMC4xbDEyLjUtMTAuOHYxODcuNWMwLjEsNS42LDQuNywxMC4yLDEwLjMsMTAuM2gyOTcuM2M1LjYtMC4xLDEwLjItNC42LDEwLjMtMTAuM3YtMTg3LjUNCgkJCWwxMi41LDEwLjhjMS44LDEuNSw0LDIuNCw2LjQsMi40YzIuOSwwLDUuNy0xLjMsNy42LTMuNUM0MjEuMTE0LDI0Ni41MTgsNDIwLjUxNCwyNDAuMjE4LDQxNi4zMTQsMjM2LjcxOHogTTI3Mi4wMTQsNDE4LjgxOGgtODANCgkJCXYtMTA4aDgwVjQxOC44MTh6IE0yOTIuMDE0LDQxOC44MTh2LTExNy43YzAtNS41LTQuMS0xMC4zLTkuNi0xMC4zaC0xMDAuOGMtNS41LDAtOS42LDQuOC05LjYsMTAuM3YxMTcuN2gtNzl2LTE5NC44bDEzOS0xMTguNA0KCQkJbDEzOSwxMTguNHYxOTQuOEgyOTIuMDE0eiIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K"/>
+          <img *ngIf="address.annotation === 'work'"
+               src="data:image/svg+xml;base64,PHN2ZyBpZD0ibGlnaHQiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iNTEyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnPjxwYXRoIGQ9Im0yMS41IDIyaC0xOWMtMS40IDAtMi41LTEuMS0yLjUtMi41di0xMmMwLTEuNCAxLjEtMi41IDIuNS0yLjVoMTljMS40IDAgMi41IDEuMSAyLjUgMi41djEyYzAgMS40LTEuMSAyLjUtMi41IDIuNXptLTE5LTE2Yy0uOCAwLTEuNS43LTEuNSAxLjV2MTJjMCAuOC43IDEuNSAxLjUgMS41aDE5Yy44IDAgMS41LS43IDEuNS0xLjV2LTEyYzAtLjgtLjctMS41LTEuNS0xLjV6Ii8+PC9nPjxnPjxwYXRoIGQ9Im0xNS41IDZjLS4zIDAtLjUtLjItLjUtLjV2LTJjMC0uMy0uMi0uNS0uNS0uNWgtNWMtLjMgMC0uNS4yLS41LjV2MmMwIC4zLS4yLjUtLjUuNXMtLjUtLjItLjUtLjV2LTJjMC0uOC43LTEuNSAxLjUtMS41aDVjLjggMCAxLjUuNyAxLjUgMS41djJjMCAuMy0uMi41LS41LjV6Ii8+PC9nPjxnPjxwYXRoIGQ9Im0xMiAxNGMtLjEgMC0uMSAwLS4yIDBsLTExLjUtNGMtLjItLjEtLjQtLjQtLjMtLjcuMS0uMi40LS40LjctLjNsMTEuMyA0IDExLjMtNGMuMy0uMS41IDAgLjYuM3MwIC41LS4zLjZsLTExLjUgNGMwIC4xIDAgLjEtLjEuMXoiLz48L2c+PC9zdmc+"
+               class="address-image">
+          <img *ngIf="address.annotation === 'hotel'"
+               src="data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgaWQ9IlhNTElEXzIzNDBfIj48ZyBpZD0iWE1MSURfNjMwXyI+PGcgaWQ9IlhNTElEXzYzMV8iPjxwYXRoIGlkPSJYTUxJRF84MDZfIiBkPSJtNTAyIDQ0NGgtMjB2LTM4OGMwLTUuNTIzLTQuNDc4LTEwLTEwLTEwaC03My42Njd2LTM2YzAtNS41MjMtNC40NzgtMTAtMTAtMTBoLTI2NC42NjZjLTUuNTIyIDAtMTAgNC40NzctMTAgMTB2MzZoLTczLjY2N2MtNS41MjIgMC0xMCA0LjQ3Ny0xMCAxMHYzODhoLTIwYy01LjUyMyAwLTEwIDQuNDc3LTEwIDEwdjQ4YzAgNS41MjMgNC40NzcgMTAgMTAgMTBoMjAxLjAwNGM1LjUyMiAwIDEwLTQuNDc3IDEwLTEwcy00LjQ3OC0xMC0xMC0xMGgtMTkxLjAwNHYtMjhoNDcydjI4aC0xOTEuMDAyYy01LjUyMiAwLTEwIDQuNDc3LTEwIDEwczQuNDc4IDEwIDEwIDEwaDIwMS4wMDJjNS41MjIgMCAxMC00LjQ3NyAxMC0xMHYtNDhjMC01LjUyMy00LjQ3OC0xMC0xMC0xMHptLTM2OC4zMzMtNDI0aDI0NC42NjZ2MjZoLTI0NC42NjZ6bTExMi4zMzMgNDI0aC01MnYtNjBjMC0zMC43ODIgMjIuNTUzLTU2LjM4NSA1Mi02MS4xODJ6bTIwIDB2LTEyMS4xODJjMjkuNDQ3IDQuNzk3IDUyIDMwLjQgNTIgNjEuMTgydjYwem03MiAwdi02MGMwLTQ1LjIxNS0zNi43ODUtODItODItODJzLTgyIDM2Ljc4NS04MiA4MnY2MGgtMTI0di0zNzhoNDEydjM3OHoiLz48cGF0aCBpZD0iWE1MSURfODI1XyIgZD0ibTEzNiAxMTBoLTQ4Yy01LjUyMiAwLTEwIDQuNDc3LTEwIDEwdjQ4YzAgNS41MjMgNC40NzggMTAgMTAgMTBoNDhjNS41MjMgMCAxMC00LjQ3NyAxMC0xMHYtNDhjMC01LjUyMy00LjQ3Ny0xMC0xMC0xMHptLTEwIDQ4aC0yOHYtMjhoMjh6Ii8+PHBhdGggaWQ9IlhNTElEXzgyOF8iIGQ9Im0yMzIgMTEwaC00OGMtNS41MjMgMC0xMCA0LjQ3Ny0xMCAxMHY0OGMwIDUuNTIzIDQuNDc3IDEwIDEwIDEwaDQ4YzUuNTIzIDAgMTAtNC40NzcgMTAtMTB2LTQ4YzAtNS41MjMtNC40NzctMTAtMTAtMTB6bS0xMCA0OGgtMjh2LTI4aDI4eiIvPjxwYXRoIGlkPSJYTUxJRF84MzFfIiBkPSJtMzI4IDExMGgtNDhjLTUuNTIyIDAtMTAgNC40NzctMTAgMTB2NDhjMCA1LjUyMyA0LjQ3OCAxMCAxMCAxMGg0OGM1LjUyMiAwIDEwLTQuNDc3IDEwLTEwdi00OGMwLTUuNTIzLTQuNDc4LTEwLTEwLTEwem0tMTAgNDhoLTI4di0yOGgyOHoiLz48cGF0aCBpZD0iWE1MSURfODM0XyIgZD0ibTQyNCAxMTBoLTQ4Yy01LjUyMiAwLTEwIDQuNDc3LTEwIDEwdjQ4YzAgNS41MjMgNC40NzggMTAgMTAgMTBoNDhjNS41MjIgMCAxMC00LjQ3NyAxMC0xMHYtNDhjMC01LjUyMy00LjQ3OC0xMC0xMC0xMHptLTEwIDQ4aC0yOHYtMjhoMjh6Ii8+PHBhdGggaWQ9IlhNTElEXzE0NzFfIiBkPSJtMTM2IDIwNmgtNDhjLTUuNTIyIDAtMTAgNC40NzctMTAgMTB2NDhjMCA1LjUyMyA0LjQ3OCAxMCAxMCAxMGg0OGM1LjUyMyAwIDEwLTQuNDc3IDEwLTEwdi00OGMwLTUuNTIzLTQuNDc3LTEwLTEwLTEwem0tMTAgNDhoLTI4di0yOGgyOHoiLz48cGF0aCBpZD0iWE1MSURfMTQ4Ml8iIGQ9Im0yMzIgMjA2aC00OGMtNS41MjMgMC0xMCA0LjQ3Ny0xMCAxMHY0OGMwIDUuNTIzIDQuNDc3IDEwIDEwIDEwaDQ4YzUuNTIzIDAgMTAtNC40NzcgMTAtMTB2LTQ4YzAtNS41MjMtNC40NzctMTAtMTAtMTB6bS0xMCA0OGgtMjh2LTI4aDI4eiIvPjxwYXRoIGlkPSJYTUxJRF8xNDg3XyIgZD0ibTMyOCAyMDZoLTQ4Yy01LjUyMiAwLTEwIDQuNDc3LTEwIDEwdjQ4YzAgNS41MjMgNC40NzggMTAgMTAgMTBoNDhjNS41MjIgMCAxMC00LjQ3NyAxMC0xMHYtNDhjMC01LjUyMy00LjQ3OC0xMC0xMC0xMHptLTEwIDQ4aC0yOHYtMjhoMjh6Ii8+PHBhdGggaWQ9IlhNTElEXzE0OTBfIiBkPSJtNDI0IDIwNmgtNDhjLTUuNTIyIDAtMTAgNC40NzctMTAgMTB2NDhjMCA1LjUyMyA0LjQ3OCAxMCAxMCAxMGg0OGM1LjUyMiAwIDEwLTQuNDc3IDEwLTEwdi00OGMwLTUuNTIzLTQuNDc4LTEwLTEwLTEwem0tMTAgNDhoLTI4di0yOGgyOHoiLz48cGF0aCBpZD0iWE1MSURfNjMyXyIgZD0ibTEzNiAzMDJoLTQ4Yy01LjUyMiAwLTEwIDQuNDc3LTEwIDEwdjQ4YzAgNS41MjMgNC40NzggMTAgMTAgMTBoNDhjNS41MjMgMCAxMC00LjQ3NyAxMC0xMHYtNDhjMC01LjUyMy00LjQ3Ny0xMC0xMC0xMHptLTEwIDQ4aC0yOHYtMjhoMjh6Ii8+PHBhdGggaWQ9IlhNTElEXzE1MTNfIiBkPSJtNDI0IDMwMmgtNDhjLTUuNTIyIDAtMTAgNC40NzctMTAgMTB2NDhjMCA1LjUyMyA0LjQ3OCAxMCAxMCAxMGg0OGM1LjUyMiAwIDEwLTQuNDc3IDEwLTEwdi00OGMwLTUuNTIzLTQuNDc4LTEwLTEwLTEwem0tMTAgNDhoLTI4di0yOGgyOHoiLz48cGF0aCBpZD0iWE1MSURfMTUyMl8iIGQ9Im0yNTYgNDkyYy0yLjYzIDAtNS4yMSAxLjA3LTcuMDcgMi45M3MtMi45MyA0LjQ0LTIuOTMgNy4wNyAxLjA2OSA1LjIxIDIuOTMgNy4wN2MxLjg2IDEuODYgNC40NCAyLjkzIDcuMDcgMi45M3M1LjIxLTEuMDcgNy4wNjktMi45M2MxLjg2LTEuODYgMi45MzEtNC40NCAyLjkzMS03LjA3cy0xLjA3LTUuMjEtMi45MzEtNy4wN2MtMS44NTktMS44Ni00LjQzOS0yLjkzLTcuMDY5LTIuOTN6Ii8+PC9nPjwvZz48L2c+PC9zdmc+"
+               class="address-image">
+        </div>
+        <div class="h5 align-self-end text-capitalize">{{address.annotation}}</div>
+      </div>
+      <div class="text-muted fs-6">
+        {{address.flat_no + ', ' + address.address + ', ' + address.landmark + ', ' + address.city + ', Maharashtra, India' }}
+      </div>
+      <div class="mt-auto">
+        <button class="card-link btn-sm btn-danger fw-bold" type="button" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">DELIVER HERE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-6 col-md-12 col-lg-6 col-xl-4 mb-3">
+    <div class="p-3 address-new d-flex flex-column justify-content-between">
+      <div><h5 class="h5">Add new address</h5></div>
+      <div>
+        <button class="card-link btn-sm btn-dark fw-bold" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight" style="max-width: 7rem">ADD NEW
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-3" *ngIf="!user">
+  <div class="col-xs-6 col-md-12 col-lg-6 col-xl-4 mb-3">
+    <div class="p-3 address-new d-flex flex-column justify-content-between">
+      <div><h5 class="h5">Add new address</h5></div>
+      <div>
+        <button class="card-link btn-sm btn-dark fw-bold" data-bs-toggle="modal" data-bs-target="#UserHelperModal"
+                type="button">ADD NEW
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="UserHelperModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body p-4">
+        <h5 class="h5">Log in to add address.</h5>
+        <div class="d-flex justify-content-center mt-4">
+          <div class="me-3">
+            <button type="button" class="btn btn-dark fw-bold px-4" data-bs-dismiss="modal" routerLink="/signIn">Log
+              in
+            </button>
+          </div>
+          <div class="ms-3">
+            <button type="button" class="btn btn-danger fw-bold px-4" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body fs-4 text-info" style="font-family: 'Permanent Marker', cursive;">
+        foodhub is currently not accepting any orders
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="AddressHelperModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body p-4">
+        <h5 class="h5">Address added successfully</h5>
+        <div class="d-flex justify-content-end">
+          <div>
+            <button type="button" class="btn btn-dark fw-bold px-4" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="fw-bold" id="offcanvasRightLabel">Add Address</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <form
+      class="needs-validation"
+      #f="ngForm"
+      (ngSubmit)="onSubmit(f)"
+      novalidate
+    >
+      <div class="mb-4">
+        <div class="row">
+
+          <div class="col-4 col-md-3 my-auto">
+            <label class="text-success fw-bold" for="address">Address</label>
+          </div>
+          <div class="col-7 p-0">
+            <input
+              type="string"
+              style="border: none"
+              class="form-control"
+              id="address"
+              required
+              name="address"
+              ngModel
+              #address="ngModel"
+              [ngStyle]="{
+                    border:
+                      address.touched && !address.valid
+                        ? '1px solid #8c57f5'
+                        : '1px solid #ced4da'
+                  }"
+            />
+            <div class="text-center mt-1">
+              <span *ngIf="address.touched && !address.valid"
+              >Address cannot be empty</span
+              >
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mb-4">
+        <div class="row">
+
+          <div class="col-4 col-md-3 my-auto">
+            <label class="text-success fw-bold" for="city">City</label>
+          </div>
+          <div class="col-7 p-0">
+            <input
+              type="string"
+              style="border: none"
+              class="form-control"
+              id="city"
+              required
+              name="city"
+              ngModel
+              #city="ngModel"
+              [ngStyle]="{
+                    border:
+                      city.touched && !city.valid
+                        ? '1px solid #8c57f5'
+                        : '1px solid #ced4da'
+                  }"
+            />
+            <div class="text-center mt-1">
+              <span *ngIf="city.touched && !city.valid"
+              >City cannot be empty</span
+              >
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="mb-4">
+        <div class="row">
+          <div class="col-4 col-md-3 my-auto">
+            <label class="text-success fw-bold" for="flat_no">Door / Flat No</label>
+          </div>
+          <div class="col-7 p-0">
+            <input
+              type="string"
+              style="border: none"
+              class="form-control"
+              id="flat_no"
+              name="flat_no"
+              ngModel
+              required
+              #flat_no="ngModel"
+              [ngStyle]="{
+                    border:
+                      flat_no.touched && !flat_no.valid
+                        ? '1px solid #8c57f5'
+                        : '1px solid #ced4da'
+                  }"
+            />
+            <div class="text-center mt-1">
+              <span *ngIf="flat_no.touched && !flat_no.valid"
+              >Please enter Door / flat no</span
+              >
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mb-4">
+        <div class="row">
+          <div class="col-4 col-md-3 my-auto">
+            <label class="text-success fw-bold" for="landmark">Landmark</label>
+          </div>
+          <div class="col-7 p-0">
+            <input
+              type="string"
+              style="border: none"
+              class="form-control"
+              id="landmark"
+              name="landmark"
+              ngModel
+              required
+              #landmark="ngModel"
+              [ngStyle]="{
+                    border:
+                      landmark.touched && !landmark.valid
+                        ? '1px solid #8c57f5'
+                        : '1px solid #ced4da'
+                  }"
+            />
+            <div class="text-center mt-1">
+              <span *ngIf="landmark.touched && !landmark.valid"
+              >Please enter Door / flat no</span
+              >
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="mb-4">
+        <div class="row">
+          <div class="col-4 col-md-3 my-auto text-success fw-bold">
+            Address Type
+          </div>
+          <div class="col p-0 pt-1">
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group"
+                 *ngFor="let annotation of annotations">
+              <input
+                [id]="annotation"
+                class="btn-check"
+                type="radio"
+                name="annotation"
+                ngModel
+                [value]="annotation"
+                required>
+
+              <label class="btn btn-outline-dark rounded-0 px-3 px-lg-4 fw-bold" [for]="annotation">
+                {{ annotation }}
+              </label>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-success fw-bold rounded-0" type="submit" [disabled]="f.invalid">Save
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

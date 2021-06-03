@@ -1,0 +1,17 @@
+
+.home {
+  background-image: linear-gradient(rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8)), url("src/assets/images/main/swiggy.jpg");
+  /*background-image: linear-gradient(rgb(0, 0, 0, 0.9), rgb(0, 0, 0, 0.7)), url("src/assets/images/main/pexels-chan-walrus-958545.jpg");*/
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+input:focus {
+  box-shadow: none;
+}
+
+li:hover {
+  cursor: pointer;
+  text-indent: 2px;
+}

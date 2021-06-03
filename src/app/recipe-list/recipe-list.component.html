@@ -1,0 +1,512 @@
+<div
+  *ngIf="mainCourse.length === 0"
+  class="text-center"
+  style="margin-top: 200px; margin-bottom: 400px"
+>
+  <div class="lds-hourglass"></div>
+</div>
+
+<div class="container p-0 border-md-end" *ngIf="!(mainCourse.length === 0)">
+  <div id="main-course">
+    <h2 class="menu-content">main course</h2>
+    <div class="items">{{ mainCourse.length }} items</div>
+
+    <div *ngFor="let r of mainCourse">
+      <div *ngIf="isVegOnly && r.type==='veg'">
+        <div class="row">
+          <div class="col-4 col-xl-2">
+            <img
+              class="recipe-image"
+              src="{{ r.image }}"
+              *ngIf="r.image"
+              alt=""
+            />
+            <h4 *ngIf="!r.image" style="font-style: oblique;">FoodHub</h4>
+          </div>
+          <div class="col col-md-5 recipe">
+            <div class="recipe-type">
+              <div [ngClass]="{ vegetarian: r.type === 'veg' }">
+                <div></div>
+              </div>
+              <div [ngClass]="{ 'non-vegetarian': r.type === 'non-veg' }">
+                <div></div>
+              </div>
+            </div>
+            <div class="recipe-name">{{ r.title }}</div>
+            <div class="price">
+              <span style="margin-right: 1.4px">&#8377;</span>{{ r.price }}
+            </div>
+          </div>
+
+          <div class="col d-flex justify-content-center align-items-center">
+            <button
+              type="button"
+              class="btn btn-dark add-button"
+              (click)="onAdd($event, r)"
+              [ngClass]="{ 'd-none': r.numberOfItems > 0 }"
+            >
+              ADD
+              <img
+                src="../../assets/images/icons/plus.svg"
+                style="height: 15px"
+                alt=""
+              />
+            </button>
+
+            <div
+              class="btn-group d-none"
+              role="group"
+              aria-label="Basic example"
+              [ngClass]="{ 'd-none': r.numberOfItems == 0 }"
+            >
+              <button
+                type="button"
+                class="btn add-button"
+                (click)="onSubtractItem($event, r)"
+              >
+                <img
+                  src="../../assets/images/icons/minus.svg"
+                  style="height: 15px"
+                  alt=""
+                />
+              </button>
+
+              <button
+                type="button"
+                class="btn add-button"
+                *ngIf="r.numberOfItems === 0"
+              >
+                1
+              </button>
+              <button
+                type="button"
+                class="btn add-button"
+                *ngIf="r.numberOfItems > 0"
+              >
+                {{ r.numberOfItems }}
+              </button>
+              <button
+                type="button"
+                class="btn add-button"
+                (click)="onAddItem($event, r)"
+              >
+                <img
+                  src="../../assets/images/icons/plus2.svg"
+                  style="height: 15px"
+                  alt=""
+                />
+              </button>
+            </div>
+          </div>
+
+        </div>
+        <div class="item-separator"></div>
+      </div>
+      <div *ngIf="!isVegOnly">
+        <div class="row">
+          <div class="col-4 col-xl-2">
+            <img
+              class="recipe-image"
+              src="{{ r.image }}"
+              *ngIf="r.image"
+              alt=""
+            />
+            <h4 *ngIf="!r.image" style="font-style: oblique;">FoodHub</h4>
+          </div>
+          <div class="col col-md-5 recipe">
+            <div class="recipe-type">
+              <div [ngClass]="{ vegetarian: r.type === 'veg' }">
+                <div></div>
+              </div>
+              <div [ngClass]="{ 'non-vegetarian': r.type === 'non-veg' }">
+                <div></div>
+              </div>
+            </div>
+            <div class="recipe-name">{{ r.title }}</div>
+            <div class="price">
+              <span style="margin-right: 1.4px">&#8377;</span>{{ r.price }}
+            </div>
+          </div>
+
+          <div class="col d-flex justify-content-center align-items-center">
+            <button
+              type="button"
+              class="btn btn-dark add-button"
+              (click)="onAdd($event, r)"
+              [ngClass]="{ 'd-none': r.numberOfItems > 0 }"
+            >
+              ADD
+              <img
+                src="../../assets/images/icons/plus.svg"
+                style="height: 15px"
+                alt=""
+              />
+            </button>
+
+            <div
+              class="btn-group d-none"
+              role="group"
+              aria-label="Basic example"
+              [ngClass]="{ 'd-none': r.numberOfItems == 0 }"
+            >
+              <button
+                type="button"
+                class="btn add-button"
+                (click)="onSubtractItem($event, r)"
+              >
+                <img
+                  src="../../assets/images/icons/minus.svg"
+                  style="height: 15px"
+                  alt=""
+                />
+              </button>
+
+              <button
+                type="button"
+                class="btn add-button"
+                *ngIf="r.numberOfItems === 0"
+              >
+                1
+              </button>
+              <button
+                type="button"
+                class="btn add-button"
+                *ngIf="r.numberOfItems > 0"
+              >
+                {{ r.numberOfItems }}
+              </button>
+              <button
+                type="button"
+                class="btn add-button"
+                (click)="onAddItem($event, r)"
+              >
+                <img
+                  src="../../assets/images/icons/plus2.svg"
+                  style="height: 15px"
+                  alt=""
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="item-separator"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="quick-bites">
+    <h2 class="menu-content">quick bites</h2>
+    <div class="items">{{ quickBites.length }} items</div>
+
+    <div *ngFor="let r of quickBites">
+      <div class="row">
+        <div class="col-4 col-xl-2">
+          <img
+            class="recipe-image"
+            src="{{ r.image }}"
+            *ngIf="r.image"
+            alt=""
+          />
+          <h4 *ngIf="!r.image" style="font-style: oblique;">FoodHub</h4>
+        </div>
+        <div class="col col-md-5 recipe">
+          <div class="recipe-type">
+            <div [ngClass]="{ vegetarian: r.type === 'veg' }">
+              <div></div>
+            </div>
+            <div [ngClass]="{ 'non-vegetarian': r.type === 'non-veg' }">
+              <div></div>
+            </div>
+          </div>
+          <div class="recipe-name">{{ r.title }}</div>
+          <div class="price">
+            <span style="margin-right: 1.4px">&#8377;</span>{{ r.price }}
+          </div>
+        </div>
+
+        <div class="col d-flex justify-content-center align-items-center">
+          <button
+            type="button"
+            class="btn btn-dark add-button"
+            (click)="onAdd($event, r)"
+            [ngClass]="{ 'd-none': r.numberOfItems > 0 }"
+          >
+            ADD
+            <img
+              src="../../assets/images/icons/plus.svg"
+              style="height: 15px"
+              alt=""
+            />
+          </button>
+
+          <div
+            class="btn-group d-none"
+            role="group"
+            aria-label="Basic example"
+            [ngClass]="{ 'd-none': r.numberOfItems == 0 }"
+          >
+            <button
+              type="button"
+              class="btn add-button"
+              (click)="onSubtractItem($event, r)"
+            >
+              <img
+                src="../../assets/images/icons/minus.svg"
+                style="height: 15px"
+                alt=""
+              />
+            </button>
+
+            <button
+              type="button"
+              class="btn add-button"
+              *ngIf="r.numberOfItems === 0"
+            >
+              1
+            </button>
+            <button
+              type="button"
+              class="btn add-button"
+              *ngIf="r.numberOfItems > 0"
+            >
+              {{ r.numberOfItems }}
+            </button>
+            <button
+              type="button"
+              class="btn add-button"
+              (click)="onAddItem($event, r)"
+            >
+              <img
+                src="../../assets/images/icons/plus2.svg"
+                style="height: 15px"
+                alt=""
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-separator"></div>
+    </div>
+  </div>
+
+  <div id="extraas">
+    <h2 class="menu-content">extraas</h2>
+    <div class="items">{{ extraas.length }} items</div>
+
+    <div *ngFor="let r of extraas">
+      <div class="row">
+        <div class="col-4 col-xl-2">
+          <img
+            class="recipe-image"
+            src="{{ r.image }}"
+            *ngIf="r.image"
+            alt=""
+          />
+          <h4 *ngIf="!r.image" style="font-style: oblique;">FoodHub</h4>
+        </div>
+        <div class="col col-md-5 recipe">
+          <div class="recipe-type">
+            <div [ngClass]="{ vegetarian: r.type === 'veg' }">
+              <div></div>
+            </div>
+            <div [ngClass]="{ 'non-vegetarian': r.type === 'non-veg' }">
+              <div></div>
+            </div>
+          </div>
+          <div class="recipe-name">{{ r.title }}</div>
+          <div class="price">
+            <span style="margin-right: 1.4px">&#8377;</span>{{ r.price }}
+          </div>
+        </div>
+
+        <div class="col d-flex justify-content-center align-items-center">
+          <button
+            type="button"
+            class="btn btn-dark add-button"
+            (click)="onAdd($event, r)"
+            [ngClass]="{ 'd-none': r.numberOfItems > 0 }"
+          >
+            ADD
+            <img
+              src="../../assets/images/icons/plus.svg"
+              style="height: 15px"
+              alt=""
+            />
+          </button>
+
+          <div
+            class="btn-group d-none"
+            role="group"
+            aria-label="Basic example"
+            [ngClass]="{ 'd-none': r.numberOfItems == 0 }"
+          >
+            <button
+              type="button"
+              class="btn add-button"
+              (click)="onSubtractItem($event, r)"
+            >
+              <img
+                src="../../assets/images/icons/minus.svg"
+                style="height: 15px"
+                alt=""
+              />
+            </button>
+
+            <button
+              type="button"
+              class="btn add-button"
+              *ngIf="r.numberOfItems === 0"
+            >
+              1
+            </button>
+            <button
+              type="button"
+              class="btn add-button"
+              *ngIf="r.numberOfItems > 0"
+            >
+              {{ r.numberOfItems }}
+            </button>
+            <button
+              type="button"
+              class="btn add-button"
+              (click)="onAddItem($event, r)"
+            >
+              <img
+                src="../../assets/images/icons/plus2.svg"
+                style="height: 15px"
+                alt=""
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-separator"></div>
+    </div>
+  </div>
+
+  <div id="beverages">
+    <h2 class="menu-content">beverages</h2>
+    <div class="items">{{ beverages.length }} items</div>
+
+    <div *ngFor="let r of beverages">
+      <div class="row">
+        <div class="col-4 col-xl-2">
+          <img
+            class="recipe-image"
+            src="{{ r.image }}"
+            *ngIf="r.image"
+            alt=""
+          />
+          <h4 *ngIf="!r.image" style="font-style: oblique;">FoodHub</h4>
+        </div>
+        <div class="col col-md-5 recipe">
+          <div class="recipe-type">
+            <div [ngClass]="{ vegetarian: r.type === 'veg' }">
+              <div></div>
+            </div>
+            <div [ngClass]="{ 'non-vegetarian': r.type === 'non-veg' }">
+              <div></div>
+            </div>
+          </div>
+          <div class="recipe-name">{{ r.title }}</div>
+          <div class="price">
+            <span style="margin-right: 1.4px">&#8377;</span>{{ r.price }}
+          </div>
+        </div>
+
+        <div class="col d-flex justify-content-center align-items-center">
+          <button
+            type="button"
+            class="btn btn-dark add-button"
+            (click)="onAdd($event, r)"
+            [ngClass]="{ 'd-none': r.numberOfItems > 0 }"
+          >
+            ADD
+            <img
+              src="../../assets/images/icons/plus.svg"
+              style="height: 15px"
+              alt=""
+            />
+          </button>
+
+          <div
+            class="btn-group d-none"
+            role="group"
+            aria-label="Basic example"
+            [ngClass]="{ 'd-none': r.numberOfItems == 0 }"
+          >
+            <button
+              type="button"
+              class="btn add-button"
+              (click)="onSubtractItem($event, r)"
+            >
+              <img
+                src="../../assets/images/icons/minus.svg"
+                style="height: 15px"
+                alt=""
+              />
+            </button>
+
+            <button
+              type="button"
+              class="btn add-button"
+              *ngIf="r.numberOfItems === 0"
+            >
+              1
+            </button>
+            <button
+              type="button"
+              class="btn add-button"
+              *ngIf="r.numberOfItems > 0"
+            >
+              {{ r.numberOfItems }}
+            </button>
+            <button
+              type="button"
+              class="btn add-button"
+              (click)="onAddItem($event, r)"
+            >
+              <img
+                src="../../assets/images/icons/plus2.svg"
+                style="height: 15px"
+                alt=""
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-separator"></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="modal fade" id="cartHelperModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body p-4">
+        <h5 class="h5">Items already in cart</h5>
+        <p class="text-muted" style="font-size: 16px;line-height: 18px;font-weight: 500">Your cart contains items from
+          other restaurant. Would you like to
+          reset your cart for adding items from this
+          restaurant?</p>
+
+
+        <div class="d-flex justify-content-evenly">
+          <div>
+            <button type="button" class="btn btn-dark btn-sm fw-bold px-4" data-bs-dismiss="modal">NO</button>
+          </div>
+          <div>
+            <button type="button" class="btn btn-danger btn-sm fw-bold px-4" (click)="resetCart()">YES, START
+              AFRESH
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

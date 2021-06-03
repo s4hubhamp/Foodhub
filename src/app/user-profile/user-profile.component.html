@@ -1,0 +1,208 @@
+<div class="d-flex flex-column vh-100" style="background-color: #37718e">
+  <app-header></app-header>
+
+  <div
+    *ngIf="!user"
+    class="text-center"
+    style="margin-top: 200px; margin-bottom: 400px;"
+  >
+    <div class="lds-hourglass"></div>
+    <div>
+      <button class="btn btn-dark fw-500 mt-4" routerLink="/signIn">Log in</button>
+    </div>
+  </div>
+
+  <div *ngIf="user">
+    <div>
+      <div class="container-fluid">
+        <div class="row pt-5">
+          <div class="col col-md-6 offset-md-2 p-md-0 text-white">
+            <h2 style="text-transform: capitalize">{{ user.username }}</h2>
+            <div
+              style="font-size: 17px; font-family: monospace"
+            >
+              {{ user.email }}
+            </div>
+          </div>
+          <div class="col col-md-2 p-md-0 text-end my-auto">
+
+            <button class="btn btn-outline-light rounded-0 fw-bold" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#profileCanvas">
+              EDIT PROFILE
+            </button>
+
+          </div>
+        </div>
+        <div class="row py-5">
+          <div class="col col-md-8 mx-auto p-0">
+            <div class="card shadow-lg py-4 rounded-0">
+              <div class="d-md-flex">
+                <div class="nav d-none d-md-flex flex-column nav-pills ms-5 fw-bold" id="v-pills-tab" role="tablist"
+                     aria-orientation="vertical">
+                  <div class="text-dark link mt-4" data-bs-toggle="pill"
+                       [routerLink]="['addresses']" routerLinkActive="active">
+                    Addresses
+                  </div>
+                  <div class="text-dark link" data-bs-toggle="pill" [routerLink]="['favourites']"
+                       routerLinkActive="active">
+                    Favourites
+                  </div>
+                  <div class="text-dark link" data-bs-toggle="pill" [routerLink]="['orders']" routerLinkActive="active">
+                    Orders
+                  </div>
+                  <div class="text-dark link mb-4" data-bs-toggle="pill" [routerLink]="['payments']"
+                       routerLinkActive="active">
+                    Payments
+                  </div>
+
+
+                </div>
+                <div class="nav d-flex d-md-none justify-content-evenly py-2" style="background: #edf1f7;">
+                  <div class="text-dark fw-500 py-2 px-2" data-bs-toggle="pill"
+                       [routerLink]="['addresses']" routerLinkActive="active">
+                    Addresses
+                  </div>
+                  <div class="text-dark fw-500 py-2 px-2" data-bs-toggle="pill"
+                       [routerLink]="['favourites']" routerLinkActive="active">Favourites
+                  </div>
+                  <div class="text-dark fw-500 py-2 px-2" data-bs-toggle="pill" [routerLink]="['orders']"
+                       routerLinkActive="active">
+                    Orders
+                  </div>
+                  <div class="text-dark fw-500 py-2 px-2" data-bs-toggle="pill"
+                       [routerLink]="['payments']" routerLinkActive="active">Payments
+                  </div>
+
+                </div>
+
+                <hr class="w-75 mx-auto d-md-none">
+                <div class="tab-content p-3 text-dark flex-grow-1 ps-md-5">
+
+                  <router-outlet></router-outlet>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="profileCanvas" aria-labelledby="offcanvasExampleLabel">
+      <div class="row d-flex flex-row-reverse">
+        <div class="col-9 col-md-7 col-lg-6">
+          <div class="offcanvas-header">
+            <h5 class="fw-bold">Edit Profile</h5>
+
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+
+            <form
+              class="needs-validation"
+              #f="ngForm"
+              (ngSubmit)="onSubmit(f)"
+              novalidate
+            >
+              <div class="mb-4">
+                <div class="row">
+                  <div class="col-4 col-md-3 mt-1">
+                    <label for="username" class="text-primary">Username</label>
+                  </div>
+                  <div class="col">
+                    <input
+                      id="username"
+                      type="text"
+                      style="border: none"
+                      class="form-control"
+                      required
+                      name="username"
+                      [ngModel]="user.username"
+                      #username="ngModel"
+                      [ngStyle]="{
+                      border:
+                        username.touched && username.value.length < 7
+                          ? '1px solid #8c57f5'
+                          : '1px solid #ced4da'
+                    }"
+                    />
+                    <div class="text-center mt-1">
+                <span *ngIf="username.touched && username.value.length < 7"
+                >username must be 7 characters or more.</span
+                >
+                      <span *ngIf="usernameError">{{ usernameError }}</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="mb-4">
+                <div class="row">
+                  <div class="col-4 col-md-3 my-auto">
+                    <label for="email" class="text-primary">Email</label>
+                  </div>
+                  <div class="col">
+                    <input
+                      id="email"
+                      type="email"
+                      class="form-control"
+                      placeholder="Email address"
+                      required
+                      email
+                      name="email"
+                      [ngModel]="user.email"
+                      #email="ngModel"
+                      [ngStyle]="{
+                      border:
+                        email.touched && !email.valid
+                          ? '1px solid #8c57f5'
+                          : '1px solid #ced4da'
+                    }"
+                    />
+                    <div class="text-center mt-1">
+                <span *ngIf="email.touched && !email.valid"
+                >Please enter a valid email address.</span
+                >
+                      <span *ngIf="emailError">{{ emailError }}</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <button class="btn btn-primary fw-bold rounded-0" type="submit" [disabled]="f.invalid">Save Changes
+                  </button>
+                </div>
+              </div>
+
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="modal fade" id="ProfileHelperModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body p-4">
+        <h5 class="h5">Profile updated successfully</h5>
+        <div class="d-flex justify-content-end">
+          <div>
+            <button type="button" class="btn btn-dark fw-bold px-4" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

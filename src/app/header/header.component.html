@@ -1,0 +1,149 @@
+<!-- #5CDB95 -->
+<header id="header">
+  <div
+    class="container-fluid"
+    [ngStyle]="{
+      'background-color': '#fff'
+    }"
+  >
+    <div class="row">
+      <div class="col-md-8 offset-md-2 p-md-0">
+        <nav class="navbar navbar-expand-md navbar-light">
+          <div class="container-fluid p-0">
+            <a
+              class="navbar-brand active"
+              href="#"
+              style="
+                font-family: 'Potta One', cursive;
+                font-size: 2.3rem;
+                color: black;
+              "
+              [routerLink]="['/']"
+            >Food<span class="text-danger">hub</span></a
+            >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mb-lg-0 ms-auto">
+                <li class="nav-item" *ngIf="isAuthenticated">
+                  <div class="dropdown">
+                    <a
+                      class="nav-link active dropdown-toggle"
+                      id="dropdownMenuButton2"
+                      aria-expanded="false"
+                      style="
+                        color: #8c57f5;
+                        font-size: 17px;
+                        text-transform: capitalize;
+                      "
+                    >{{ username }}</a
+                    >
+                    <ul
+                      id="dropdown-menu"
+                      class="dropdown-menu shadow-lg"
+                      aria-labelledby="dropdownMenuButton2"
+                    >
+                      <li>
+                        <a
+                          [routerLink]="['/profile']"
+                          class="dropdown-item"
+                          style="font-weight: 600"
+                        >Profile</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          [routerLink]="['/profile/favourites']"
+                          class="dropdown-item"
+                          style="font-weight: 600"
+                        >Favourites</a
+                        >
+                      </li>
+
+                      <li>
+                        <a (click)="onSignOut()" class="dropdown-item" href="#"
+                        >Sign Out</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="nav-item">
+                  <a
+                    [routerLink]="['/checkout']"
+                    routerLinkActive="active"
+                    class="nav-link active"
+                    onmouseover="this.style.color='royalblue'"
+                    onmouseout="this.style.color='rgba(0,0,0,0.9)'"
+                  >Cart<span class="ms-1"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-cart-check"
+                    viewBox="0 0 16 16"
+                  >
+                        <path
+                          d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"
+                        />
+                        <path
+                          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+                        /></svg></span
+                  ></a>
+                </li>
+                <li class="nav-item" *ngIf="!isAuthenticated">
+                  <a
+                    class="nav-link active"
+                    (click)="onSignUp()"
+                    onmouseover="this.style.color='royalblue'"
+                    onmouseout="this.style.color='rgba(0,0,0,0.9)'"
+                  >Sign up <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd"
+        d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+  <path fill-rule="evenodd"
+        d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+</svg>
+                  </span></a>
+                </li>
+                <li class="nav-item" *ngIf="!isAuthenticated">
+                  <a
+                    class="nav-link active"
+                    (click)="onSignIn()"
+                    onmouseover="this.style.color='royalblue'"
+                    onmouseout="this.style.color='rgba(0,0,0,0.9)'"
+                  >Log in
+                    <span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-person"
+                      viewBox="0 0 16 16"
+                    >
+                        <path
+                          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
+                        /></svg></span
+                    ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

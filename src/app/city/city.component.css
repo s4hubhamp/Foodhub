@@ -1,0 +1,59 @@
+/*AfterError*/
+
+@media only screen and (min-width: 1024px) {
+  #error-container {
+    width: 40vw;
+  }
+}
+
+.city-title {
+  text-transform: capitalize;
+  font-size: calc(1.125rem + 2.1vw);
+}
+
+#starter {
+  /*background-color: #00b8a9;*/
+  background-image: url("src/assets/images/main/city.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 85%;
+  background-size: 100%, 100%;
+  color: #fff;
+}
+
+.card {
+  cursor: pointer;
+}
+
+.city-description {
+  font-weight: 400;
+}
+
+.card:hover {
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+}
+
+.card img {
+  transition: transform 0.9s steps(7, start);
+}
+
+.card img:hover {
+  transform: scale(1.03);
+}
+
+@media only screen and (max-width: 767px) {
+  .card img {
+    height: 190px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .card img {
+    height: 130px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .card img {
+    height: 195px;
+  }
+}

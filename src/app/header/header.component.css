@@ -1,0 +1,25 @@
+
+.nav-item {
+  font-weight: 500;
+}
+
+.dropdown-item {
+  font-weight: 600;
+}
+
+.dropdown-item:hover {
+  text-indent: 2px;
+}
+
+.dropdown-menu {
+  z-index: 1030;
+  min-width: 8rem;
+  border: none;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}

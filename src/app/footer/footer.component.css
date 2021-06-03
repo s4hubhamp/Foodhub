@@ -1,0 +1,21 @@
+ul {
+  list-style: none;
+}
+
+li {
+  text-transform: capitalize;
+  font-size: 1.03rem;
+  cursor: pointer;
+  margin-bottom: 7px;
+  font-family: monospace;
+  /*font-weight: 500;*/
+}
+
+li:hover {
+  color: #ffc107;
+  text-indent: 2px;
+}
+
+.media-links a:hover {
+  padding-bottom: 2px;
+}

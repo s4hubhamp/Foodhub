@@ -1,0 +1,118 @@
+<div class="card px-3 border-0 rounded-0">
+  <h1 *ngIf="cart.length === 0" style="color: #85878f">cart empty</h1>
+  <h1 *ngIf="cart.length > 0">cart</h1>
+  <img
+    *ngIf="cart.length === 0"
+    class="mt-4"
+    src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_480/Cart_empty_-_menu_2x_ejjkf2"
+    alt="cart-image"
+    style="opacity: 0.5"
+  />
+
+  <div class="card-body p-0">
+    <p class="card-text text-muted" *ngIf="cart.length === 0">
+      Go ahead, order some yummy items from the menu.
+    </p>
+
+    <div
+      class="orders"
+      style="max-height: 400px; overflow-y: scroll; overflow-x: hidden"
+    >
+      <div class="mt-2" *ngFor="let c of cart">
+        <div>
+          from
+          <p class="fw-500 text-danger d-inline-block">{{
+            c.correspondigRes
+            }}</p>
+        </div>
+        <div class="pb-1" *ngFor="let r of c.recipes">
+          <div class="row">
+            <div class="col-1">
+              <div [ngClass]="{ vegetarian: r.type === 'veg' }">
+                <div></div>
+              </div>
+              <div [ngClass]="{ 'non-vegetarian': r.type === 'non-veg' }">
+                <div></div>
+              </div>
+            </div>
+            <div class="col-5" style="font-weight: 500; font-size: 1rem">
+              {{ r.title }}
+            </div>
+            <div class="col-3">
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button
+                  type="button"
+                  class="btn add-button border-start border-top border-bottom rounded-0"
+                  (click)="onSubtractItem(r, c.correspondigRes)"
+                  style="color: #85878f"
+                >
+                  -
+                </button>
+
+                <button
+                  type="button"
+                  class="btn add-button border-top border-bottom"
+                >
+                  {{ getRecipeInfo(r, c.correspondigRes) }}
+                </button>
+
+                <button
+                  type="button"
+                  class="btn add-button border-end border-top border-bottom rounded-0"
+                  (click)="onAddItem(r, c.correspondigRes)"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="price">
+                <span style="margin-right: 1.4px">&#8377;</span
+                >{{ r.price * getRecipeInfo(r, c.correspondigRes) }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="row p-0 mt-4"
+      style="font-size: 17px; font-weight: 600; line-height: 1.2"
+      *ngIf="cart.length > 0"
+    >
+      <div class="col-9">Subtotal</div>
+      <div class="col">
+        <span style="margin-right: 1.4px">&#8377;</span>
+        {{ subTotal }}
+      </div>
+    </div>
+
+    <div class="text-muted" style="font-size: 14px" *ngIf="cart.length > 0">
+      Extra charges may apply
+    </div>
+
+    <div class="d-grid mt-3" *ngIf="cart.length > 0">
+      <button
+        class="btn btn-success rounded-0 fw-bold mb-4"
+        [routerLink]="['/checkout']"
+        *ngIf="displayCheckoutButton"
+      >
+        CHECKOUT
+        <span
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-arrow-right-circle-fill"
+          viewBox="0 0 16 16"
+        >
+            <path
+              d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+            /></svg
+        ></span>
+      </button>
+    </div>
+  </div>
+</div>

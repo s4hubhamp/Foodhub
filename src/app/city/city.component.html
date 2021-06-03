@@ -1,0 +1,79 @@
+<app-header></app-header>
+
+<div class="d-flex flex-column justify-content-center" *ngIf="cityNotFound" style="min-height: 80vh;">
+  <div class="align-self-center px-3 px-md-0" id="error-container">
+    <div class="d-flex justify-content-evenly justify-content-md-between">
+      <div class="align-self-center">
+        <p class="display-2 fw-500" style="font-family: 'Passion One', cursive;color: orangered">Oops!</p>
+      </div>
+      <div style="max-width: 20vw">
+        <img class="img-fluid"
+             src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/empty_404_3x_rgdw87"
+             alt="city not found">
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <h2 class="h2">Page not found</h2>
+      <p class="text-muted fs-5">Looks like we don't deliver to that city.</p>
+      <button class="btn btn-dark btn-lg fw-500" routerLink="/">
+        GO HOME
+      </button>
+    </div>
+  </div>
+</div>
+
+<main *ngIf="!cityNotFound">
+  <div id="starter" class="container-fluid ">
+    <section class="py-5 text-center container">
+      <div class="row py-lg-4">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="city-title" style="font-family: potta one, cursive">{{ cityName }}</h1>
+          <p class="city-description mt-3 h4">
+            Order food & beverages online from restaurants near & around you.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+
+
+  <div class="py-4">
+    <div class="container">
+      <p class="h2 mb-3">
+        popular restaurants in and around
+        <span class="text-capitalize">{{ cityName }}</span>
+      </p>
+
+      <div
+        *ngIf="restaurants.length === 0"
+        class="text-center"
+        style="margin-top: 200px; margin-bottom: 400px"
+      >
+        <div class="lds-hourglass"></div>
+      </div>
+      <div
+        class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3"
+        *ngIf="restaurants.length !== 0"
+      >
+        <div class="col mb-3" *ngFor="let r of restaurants; index as i">
+          <div
+            class="card p-lg-2 border "
+            (click)="onClick(r.title)"
+          >
+            <img class="img-fluid" src="{{ r.image }}" loading="lazy" alt=""/>
+            <div class="card-body">
+              <h5 class="card-title" style="text-transform: capitalize">
+                {{ r.title }}
+              </h5>
+              <p class="card-text">{{ r.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<app-footer></app-footer>

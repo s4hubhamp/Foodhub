@@ -1,0 +1,115 @@
+<app-header></app-header>
+
+<main id="main">
+  <div id="restaurant" class="sticky-md-top py-md-4">
+    <div class="container px-4 px-md-3">
+      <div class="row">
+        <div
+          class="col-8 mx-auto mx-lg-0 col-md-4 col-lg-3 my-md-auto text-center"
+        >
+          <div style="overflow: hidden">
+            <img
+              id="restaurant-image"
+              *ngIf="restaurant"
+              class="mb-3 mb-md-0 img-fluid"
+              src="{{ restaurant.image }}"
+              style="max-height: 160px"
+            />
+          </div>
+        </div>
+        <div class="col-md-8 col-lg-7 text-center text-md-start">
+          <h1 id="restaurant-name" class="mb-3 text-capitalize h1">
+            {{ restaurantName }}
+          </h1>
+          <div id="restaurant-info" *ngIf="restaurant">
+            <p class="description mb-2">
+              {{restaurant.description}}
+            </p>
+            <p class="address">{{restaurant.location}}</p>
+          </div>
+
+          <div id="restaurant-buttons" class="mb-3 mb-lg-0">
+            <input
+              type="checkbox"
+              class="btn-check"
+              id="btncheck1"
+              autocomplete="off"
+              (click)="onFavourite($event)"
+              [checked]="restaurant && restaurant.isFavourite"
+            />
+            <label class="btn btn-sm btn-outline-danger me-3" for="btncheck1"
+            ><strong
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-heart-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                />
+              </svg>
+              <span class="ms-1" id="favourite"></span></strong
+            ></label
+            >
+
+            <input
+              type="checkbox"
+              class="btn-check"
+              id="btncheck2"
+              autocomplete="off"
+              (click)="onVegOnly($event)"
+            />
+            <label class="btn btn-sm btn-outline-success" for="btncheck2"
+            ><strong>Show Veg Only</strong></label
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container px-4 px-md-3">
+    <div class="row">
+      <div class="col-md-8 col-lg-7 text-md-start">
+        <div id="recipe-list">
+          <app-recipe-list></app-recipe-list>
+        </div>
+      </div>
+      <div
+        class="d-none d-md-flex col-md-4 col-lg-5 text-start flex-row-reverse"
+      >
+        <app-cart id="cart"></app-cart>
+      </div>
+    </div>
+  </div>
+</main>
+
+<app-footer id="footer"></app-footer>
+
+
+<div class="modal fade" id="RestaurantHelperModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body p-4">
+        <h5 class="h5">Log in to continue</h5>
+        <p class="text-muted" style="font-size: 16px;line-height: 18px;font-weight: 500">Log in to favourite this
+          restaurant.</p>
+        <div class="d-flex justify-content-evenly">
+          <div>
+            <button type="button" class="btn btn-dark btn-sm fw-bold px-4" data-bs-dismiss="modal">NO</button>
+          </div>
+          <div>
+            <button type="button" class="btn btn-danger btn-sm fw-bold px-4" (click)="onLogIn()">Log in
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

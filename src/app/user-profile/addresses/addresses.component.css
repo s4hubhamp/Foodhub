@@ -1,0 +1,10 @@
+
+span {
+  color: rgb(140, 87, 245);
+}
+
+.form-control{
+  border-radius: 0;
+  border-top: none;
+}
+

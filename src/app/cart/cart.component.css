@@ -1,0 +1,88 @@
+@media only screen and (max-width: 767px) {
+  .card {
+    width: 93vw;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .card {
+    width: 14rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .card {
+    width: 22rem;
+  }
+}
+
+.items {
+  padding-bottom: 30px;
+  font-size: 13px;
+  color: #686b78;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.card h1 {
+  margin: 0;
+  padding: 20px 0 32px;
+  font-size: 32px;
+  letter-spacing: -0.3px;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding-bottom: 0;
+}
+
+.add-button {
+  display: inline-block;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #60b246;
+  /* color: #212529; */
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  /* border: 1px solid #212529; */
+  /* user-select: none; */
+  /* padding: 0.275rem 0.95rem; */
+  padding: 0 0.4rem;
+  font-size: 1rem;
+}
+
+.vegetarian {
+  display: inline-block;
+  border: 1px solid green;
+  padding: 2px;
+}
+
+.vegetarian div {
+  height: 5px;
+  width: 5px;
+  background-color: green;
+  border-radius: 50%;
+  font-family: ProximaNova, Arial, Helvetica Neue, sans-serif;
+}
+
+.non-vegetarian {
+  display: inline-block;
+  border: 1px solid brown;
+  padding: 2px;
+}
+
+.non-vegetarian div {
+  height: 5px;
+  width: 5px;
+  background-color: brown;
+  border-radius: 50%;
+}
+
+.price {
+  font-family: monospace;
+  font-size: 1.2rem;
+}

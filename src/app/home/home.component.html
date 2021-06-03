@@ -1,0 +1,103 @@
+<div class="container-fluid p-0 d-flex flex-column vh-100" style="overflow: hidden">
+  <div class="row">
+    <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end text-md-start home vh-100">
+      <div class="col-11 col-md-8 me-md-5 mt-4 mt-md-0 home-left">
+        <div class="d-flex justify-content-between">
+          <div>
+            <a
+              class="navbar-brand"
+              href="#"
+              style="
+                font-family: 'Potta One', cursive;
+                font-size: 2.3rem;
+                color: #ffffff;
+              "
+              [routerLink]="['/']"
+            >Food<span class="text-danger">hub</span></a
+            >
+          </div>
+          <div class="d-flex align-items-center" *ngIf="!isAuthenticated">
+            <a class="link-light fw-bold" [routerLink]="['/signIn']" style="text-decoration: none">Sign In</a>
+            <button class="btn btn-sm btn-primary fw-bold rounded-0 ms-4" [routerLink]="['/signUp']">Sign Up</button>
+          </div>
+          <div class="d-flex align-items-center" *ngIf="isAuthenticated">
+            <button class="btn btn-sm btn-primary fw-bold" [routerLink]="['/checkout']">Cart</button>
+          </div>
+        </div>
+
+
+        <form class="row mt-4">
+          <div class="text-light display-4 fw-500 mb-4">
+            Good Food For Your Everyday
+          </div>
+          <div class="text-success h5">
+            Enter your city
+          </div>
+
+          <div class="col-auto flex-fill position-relative">
+            <input id="location" type="text" autofocus spellcheck="false" class="form-control form-control-lg"
+                   placeholder="start typing to view suggestions . .">
+
+
+            <div id="suggestions">
+              <div class="card mt-2" *ngIf="citySuggestions.length!==0">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item h6 text-capitalize" *ngFor="let city of citySuggestions"
+                      [routerLink]="[city]">{{city}}</li>
+                </ul>
+              </div>
+            </div>
+
+            <button class="btn btn-light d-none d-sm-block position-absolute" style="right: 19px;top: 4px;"
+                    (click)="onLocate()"><span><svg
+              xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
+              viewBox="0 0 16 16">
+  <path
+    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+  <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+</svg></span> Locate Me
+            </button>
+          </div>
+          <div class="col-auto mt-3 mt-xl-0">
+            <button type="submit" class="btn btn-lg btn-dark mb-3 fw-bold" (submit)="onFindFood()">Find Food</button>
+          </div>
+
+        </form>
+
+        <p class="text-light mb-0">Popular cities in <span
+          class="font-monospace text-warning"><strong>INDIA</strong></span></p>
+        <p class="text-muted mb-0" style="word-spacing: 4px">
+            <a class="link-light" [routerLink]="['/pune']" style="text-decoration: none;">Pune</a>
+          <strong><a class="link-info" [routerLink]="['/kolhapur']" style="text-decoration: none;">
+            Kolhapur</a></strong>
+          <a class="link-light" [routerLink]="['/sangli']" style="text-decoration: none;"> Sangli</a>
+          <strong><a class="link-info" [routerLink]="['/solapur']" style="text-decoration: none;">
+            Solapur </a></strong>
+          <a class="link-light" [routerLink]="['/ratnagiri']" style="text-decoration: none;"> Ratnagiri</a>
+          <strong><a class="link-info" [routerLink]="['/karad']" style="text-decoration: none;">
+            Karad</a></strong>
+
+        </p>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 d-md-flex p-0 home-right bg-dark">
+      <div id='map' style='width: 100%'></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header bg-dark">
+      <strong class="me-auto text-danger">Foodhub</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+
+    </div>
+    <div class="toast-body fs-6 py-1" style="font-weight: 400">
+      Location accuracy may vary based on your device. for better results use device with Global Positioning System
+      (GPS).
+    </div>
+  </div>
+</div>

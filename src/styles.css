@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Potta+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: orangered;
+  background: black;
+}
+
+::selection {
+  color: orangered;
+  background: black;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+/*MAPBOX*/
+
+.mapboxgl-popup-content {
+  padding: 0;
+}
+
+.mapboxgl-popup-content .card {
+  border: none;
+}
+
+/*Scrollbar*/
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #607cf3;
+}
+
+/*card*/
+
+.card {
+  overflow: hidden;
+}
+
+/* loading */
+
+.lds-hourglass {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 8px;
+  box-sizing: border-box;
+  border-width: 32px;
+  border-style: solid;
+  border-color: black transparent red transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
+}
+
+/*FONT WEIGHT*/
+
+.fw-500 {
+  font-weight: 500;
+}
+
+/*ADDRESS */
+
+.address-image {
+  width: 20px;
+}
+
+.address-new {
+  min-height: 10rem;
+  border: 1px dashed rgb(216, 213, 213);
+}
+
+.address-old {
+  min-height: 12rem;
+  border: 1px solid rgb(216, 213, 213);
+}
+
+.address-new:hover, .address-old:hover {
+  box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .15);
+  border: none;
+}
+
+/*off canvas right*/
+
+@media only screen and (max-width: 767px) {
+  .offcanvas-end, .offcanvas-start {
+    width: 400px;
+  }
+
+  .home-left {
+    padding-top: 5vh;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .map-container {
+    height: 100vh;
+  }
+
+  .offcanvas-end, .offcanvas-start {
+    width: 500px;
+  }
+
+  .home-left {
+    padding-top: 20vh;
+  }
+
+}
+
+@media only screen and (min-width: 992px) {
+  .offcanvas-end, .offcanvas-start {
+    width: 750px;
+  }
+
+  .home-left {
+    padding-top: 20vh;
+  }
+}
+

@@ -1,0 +1,81 @@
+#pageNotFound {
+  background-image: url("src/assets/images/main/matrix.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.home-button {
+  color: #000000;
+  font-size: 22px;
+  padding: 10px 16px;
+  background-color: #1565be;
+  -webkit-box-shadow: 0 0 100px 12px #062960;
+  -moz-box-shadow: 0 0 100px 12px #062960;
+  box-shadow: 0 0 100px 20px #062960;
+  border: solid #162D50 0;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  transform: rotate(30deg);
+
+  position: absolute;
+
+
+}
+
+.refresh {
+  color: #000000;
+  font-size: 25px;
+  padding: 10px 20px;
+  background-color: #ff0707;
+  -webkit-box-shadow: 4px 0 100px 9px #cf3131;
+  -moz-box-shadow: 4px 0 100px 9px #cf3131;
+  box-shadow: 4px 0 100px 9px #cf3131;
+  border: solid #DD380D 0;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  transform: rotate(-15deg);
+
+  position: absolute;
+
+}
+
+@media only screen and (max-width: 767px) {
+  .refresh {
+    top: 63%;
+    left: 6%;
+    transform: rotate(-8deg);
+  }
+
+  .home-button {
+    top: 63%;
+    right: 26%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .refresh {
+    top: 63%;
+    left: 28%;
+  }
+
+  .home-button {
+    top: 63%;
+    right: 35%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .refresh {
+    top: 63%;
+    left: 34%;
+  }
+
+  .home-button {
+    top: 63%;
+    right: 38%;
+  }
+}

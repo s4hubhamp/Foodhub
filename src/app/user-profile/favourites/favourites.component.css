@@ -1,0 +1,38 @@
+.card {
+  cursor: pointer;
+}
+
+.city-description {
+  font-size: calc(1.275rem + 0.3vw);
+  font-weight: 400;
+}
+
+.card:hover {
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+}
+
+.card img {
+  transition: transform 0.9s steps(7, start);
+}
+
+.card img:hover {
+  transform: scale(1.03);
+}
+
+@media only screen and (max-width: 767px) {
+  .card img {
+    height: 190px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .card img {
+    height: 130px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .card img {
+    height: 195px;
+  }
+}

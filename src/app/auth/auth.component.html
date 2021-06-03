@@ -1,0 +1,163 @@
+<div class="container-fluid d-flex flex-column vh-100">
+  <div class="lds-hourglass"></div>
+  <div id="main" class="row my-auto justify-content-center">
+    <div
+      class="col-xs-8 col-md-5 col-xl-4 text-center my-auto"
+      style="color: #2b2e4a"
+    >
+      <h1
+        id="title"
+        style="font-family: 'Yusei Magic', sans-serif; font-weight: bold"
+      >
+        foodhub
+      </h1>
+      <h3>feed your belly</h3>
+    </div>
+    <div class="col-10 col-md-6 col-xl-4 mt-4 mt-md-0">
+      <div class="card bg-light shadow-lg rounded-5">
+        <div class="card-body">
+          <form
+            class="needs-validation"
+            #f="ngForm"
+            (ngSubmit)="onSubmit(f)"
+            novalidate
+          >
+            <span class="mb-2 fw-bold" *ngIf="Unauthorized"
+            >Username or Password is incorrect</span
+            >
+            <div ngModelGroup="userData" #userData="ngModelGroup">
+              <div class="mb-4" *ngIf="authMode === 'signUp'">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Email address"
+                  required
+                  email
+                  name="email"
+                  ngModel
+                  #email="ngModel"
+                  [ngStyle]="{
+                    border:
+                      email.touched && !email.valid && authMode === 'signUp'
+                        ? '1px solid #8c57f5'
+                        : '1px solid #ced4da'
+                  }"
+                />
+                <span
+                  *ngIf="authMode === 'signUp' && email.touched && !email.valid"
+                >Please enter a valid email address.</span
+                >
+                <span *ngIf="emailError">{{ emailError }}</span>
+              </div>
+
+              <div class="mb-4">
+                <input
+                  type="username"
+                  class="form-control"
+                  placeholder="Username"
+                  required
+                  name="username"
+                  ngModel
+                  #username="ngModel"
+                  [ngStyle]="{
+                    border:
+                      username.touched &&
+                      username.value.length < 7 &&
+                      authMode === 'signUp'
+                        ? '1px solid #8c57f5'
+                        : '1px solid #ced4da'
+                  }"
+                />
+                <span
+                  *ngIf="
+                    username.touched &&
+                    username.value.length < 7 &&
+                    authMode === 'signUp'
+                  "
+                >username must be 7 characters or more.</span
+                >
+                <span *ngIf="usernameError">{{ usernameError }}</span>
+              </div>
+
+              <div class="mb-4">
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Password"
+                  required
+                  password
+                  name="password"
+                  ngModel
+                  #password="ngModel"
+                  [ngStyle]="{
+                    border:
+                      password.touched &&
+                      password.value.length < 6 &&
+                      authMode === 'signUp'
+                        ? '1px solid #8c57f5'
+                        : '1px solid #ced4da'
+                  }"
+                />
+                <span
+                  *ngIf="
+                    authMode === 'signUp' &&
+                    password.touched && password.value.length < 6
+                  "
+                >Password must be 6 characters or more.</span
+                >
+              </div>
+            </div>
+
+            <div class="text-center" *ngIf="authMode === 'signIn'">
+              <button
+                class="btn btn-primary btn-lg col-8 col-md-6"
+                type="submit"
+              >
+                Sign In
+              </button>
+            </div>
+
+            <div class="text-center" *ngIf="authMode === 'signUp'">
+              <button
+                class="btn btn-primary btn-lg col-8 col-md-6"
+                type="submit"
+              >
+                Sign Up
+              </button>
+            </div>
+
+            <hr class="mx-auto" style="width: 90%"/>
+
+            <div class="text-center" *ngIf="authMode === 'signIn'">
+              <button
+                class="btn btn-dark px-3 col-11 col-md-9 col-lg-7 btn-lg"
+                type="button"
+                routerLink="/signUp"
+              >
+                create new account
+              </button>
+            </div>
+            <div class="text-center" *ngIf="authMode === 'signUp'">
+              <button
+                class="btn btn-dark px-3 col-11 col-md-9 col-lg-7 btn-lg"
+                type="button"
+                routerLink="/signIn"
+              >
+                Sign In instead
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div
+  id="hourglass"
+  class="text-center"
+  style="position: absolute;top: 300px"
+>
+  <div class="lds-hourglass"></div>
+</div>
