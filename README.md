@@ -42,4 +42,4 @@ Open [http://localhost:4200](http://localhost:4200) to view it in the browser.
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-___Note: This is only front-end code of Foodhub___ for server head over __[Foodhub Server Repo](https://github.com/ShubhamP07/Foodhub-Server).__
+___Note: This is only front-end code of Foodhub for server head over___ __[Foodhub Server Repo](https://github.com/ShubhamP07/Foodhub-Server).__
